@@ -1,0 +1,78 @@
+description: |
+  Navega al sitio http://redmine.easytech.one/ se 
+  loguea y vefica que logró loguease correctamente
+dataSet: |
+  [
+    {
+      "user": "informador1",
+      "password": "Opentest12000!"
+    }
+    , {
+      "user": "informador2",
+      "password": "Opentest22000!"
+    }
+    , {
+      "user": "desarrollador1",
+      "password": "Opentest12000!"
+    }
+    , {
+      "user": "desarrollador2",
+      "password": "Opentest22000!"
+    }
+    , {
+      "user": "jefeproyecto1",
+      "password": "Opentest12000!"
+    }
+    , {
+      "user": "jefeproyecto2",
+      "password": "Opentest22000!"
+    }
+  ]
+
+actors:
+  - actor: ACTOR
+    segments:
+      - segment: 1
+        actions:
+          - description: Navega al sitio http://redmine.easytech.one/
+            action: org.getopentest.selenium.NavigateTo
+            args:
+              url: http://redmine.easytech.one/
+
+          - description: Enter "react" in the search box
+            action: org.getopentest.selenium.Click
+            args:
+              locator: {css: "a[href='/login']"}
+
+          - description: Escribe el usuario en la caja de texto
+            action: org.getopentest.selenium.SendKeys
+            args:
+              locator: { css: '#username' }
+              text: $dataRecord.user
+
+          - description: Escribe el password en la caja de texto
+            action: org.getopentest.selenium.SendKeys
+            args:
+              locator: { css: '#password' }
+              text: $dataRecord.password
+              sendEnter: true
+
+          - description: Pantalla luego de login
+            action: org.getopentest.selenium.TakeScreenshot
+
+          - description: Lee el usuario logueado
+            action: org.getopentest.selenium.ReadElementText
+            args:
+              locator: { css: "#loggedas > a.user.active" }
+              $localData:
+                  logueado: $output.text
+
+          - script: |
+              $log( "Logueado como: " + $localData.logueado );
+            args:
+              $description: script 'Usuario logueado ' + $localData.logueado;
+
+          - description: Deslogueando
+            action: org.getopentest.selenium.Click
+            args:
+              locator: {css: "a.logout"}
