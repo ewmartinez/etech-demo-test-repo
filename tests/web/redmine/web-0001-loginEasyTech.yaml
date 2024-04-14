@@ -7,27 +7,27 @@ dataSet: |
       "user": "informador1",
       "pass": "Opentest12000!"
     }
+    , {
+      "user": "informador2",
+      "pass": "Opentest22000!"
+    }
+    , {
+      "user": "desarrollador1",
+      "pass": "Opentest12000!"
+    }
+    , {
+      "user": "desarrollador2",
+      "pass": "Opentest22000!"
+    }
+    , {
+      "user": "jefeproyecto1",
+      "pass": "Opentest12000!"
+    }
+    , {
+      "user": "jefeproyecto2",
+      "pass": "Opentest22000!"
+    }
   ]
-# , {
-#   "user": "informador2",
-#   "pass": "Opentest22000!"
-# }
-# , {
-#   "user": "desarrollador1",
-#   "pass": "Opentest12000!"
-# }
-# , {
-#   "user": "desarrollador2",
-#   "pass": "Opentest22000!"
-# }
-# , {
-#   "user": "jefeproyecto1",
-#   "pass": "Opentest12000!"
-# }
-# , {
-#   "user": "jefeproyecto2",
-#   "pass": "Opentest22000!"
-# }
 
 actors:
   - actor: ACTOR
