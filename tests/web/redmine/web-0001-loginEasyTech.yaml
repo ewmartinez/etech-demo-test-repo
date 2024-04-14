@@ -34,7 +34,7 @@ actors:
     segments:
       - segment: 1
         actions:
-          - macro: redmine.loginRedmine
+          - macro: web.redmine.loginRedmine
             args:
               username: $dataRecord.user
               password: $dataRecord.pass
