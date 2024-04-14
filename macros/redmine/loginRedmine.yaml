@@ -1,0 +1,39 @@
+description: Login en redmine redmine
+actions: 
+  - description: Navega al sitio http://redmine.easytech.one/
+    action: org.getopentest.selenium.NavigateTo
+    args:
+      url: http://redmine.easytech.one/
+
+  - description: Click en login
+    action: org.getopentest.selenium.Click
+    args:
+      locator: {css: "a[href='/login']"}
+
+  - description: Escribe el usuario en la caja de texto
+    action: org.getopentest.selenium.SendKeys
+    args:
+      locator: { css: '#username' }
+      text: $macroArgs.username
+
+  - description: Escribe el password en la caja de texto
+    action: org.getopentest.selenium.SendKeys
+    args:
+      locator: { css: '#password' }
+      text: $macroArgs.password
+      sendEnter: true
+
+  - description: Pantalla luego de login
+    action: org.getopentest.selenium.TakeScreenshot
+
+  - description: Lee el usuario logueado
+    action: org.getopentest.selenium.ReadElementText
+    args:
+      locator: { css: "#loggedas > a.user.active" }
+      $localData:
+          logueado: $output.text
+
+  - script: |
+      $log( "Logueado como: " + $localData.logueado );
+    args:
+      $description: script 'Usuario logueado ' + $localData.logueado;

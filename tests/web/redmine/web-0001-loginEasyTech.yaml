@@ -1,0 +1,46 @@
+description: |
+  Navega al sitio http://redmine.easytech.one/ se 
+  loguea y vefica que logró loguease correctamente
+dataSet: |
+  [
+    {
+      "user": "informador1",
+      "pass": "Opentest12000!"
+    }
+  ]
+# , {
+#   "user": "informador2",
+#   "pass": "Opentest22000!"
+# }
+# , {
+#   "user": "desarrollador1",
+#   "pass": "Opentest12000!"
+# }
+# , {
+#   "user": "desarrollador2",
+#   "pass": "Opentest22000!"
+# }
+# , {
+#   "user": "jefeproyecto1",
+#   "pass": "Opentest12000!"
+# }
+# , {
+#   "user": "jefeproyecto2",
+#   "pass": "Opentest22000!"
+# }
+
+actors:
+  - actor: ACTOR
+    segments:
+      - segment: 1
+        actions:
+          - macro: redmine.loginRedmine
+            args:
+              username: $dataRecord.user
+              password: $dataRecord.pass
+
+          - description: Deslogueando
+            action: org.getopentest.selenium.Click
+            args:
+              locator: {css: "a.logout"}
+              optional: true
