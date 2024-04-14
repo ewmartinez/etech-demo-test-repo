@@ -34,6 +34,10 @@ actors:
     segments:
       - segment: 1
         actions:
+          - script: $log($json($dataRecord))
+            args:
+              $description: $json($dataRecord)
+
           - macro: web.redmine.loginRedmine
             args:
               username: $dataRecord.user
