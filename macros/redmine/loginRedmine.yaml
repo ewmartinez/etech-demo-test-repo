@@ -1,4 +1,4 @@
-description: Login en redmine redmine
+description: Login en redmine
 actions: 
   - description: Navega al sitio http://redmine.easytech.one/
     action: org.getopentest.selenium.NavigateTo
