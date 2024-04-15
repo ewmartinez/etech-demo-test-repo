@@ -36,4 +36,4 @@ actions:
   - script: |
       $log( "Logueado como: " + $localData.logueado );
     args:
-      $description: script 'Usuario logueado ' + $localData.logueado;
+      $description: $format('Usuario logueado {0}', $localData.logueado);
