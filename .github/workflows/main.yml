@@ -34,4 +34,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: cd /opt/opentest && docker compose build opentest && docker compose -f /docker/opentest/docker-compose.yml up -d
+        script: cd /docker/opentest && docker compose build opentest && docker compose -f /docker/opentest/docker-compose.yml up -d
