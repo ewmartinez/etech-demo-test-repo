@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Listar directorio
-      run: echo "ls -R ."
+      run: ls -R .
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.7
       with:
