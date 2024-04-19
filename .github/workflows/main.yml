@@ -1,5 +1,8 @@
 name: CI Opentest
-on: [push]
+on: 
+  push:
+    branches:
+      - 'master'
 jobs:
 
   copy:
