@@ -27,10 +27,6 @@ dataSet: |
       "user": "jefeproyecto2",
       "pass": "Opentest22000!"
     }
-    , {
-      "user": "informador1",
-      "pass": "Opentest12000!"
-    }
   ]
 
 actors:
