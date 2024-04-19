@@ -19,8 +19,8 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        source: "test-repo"
-        target: /docker/opentest
+        source: "tests, macros"
+        target: /docker/opentest/test-repo
         rm: true
   reload:
     name: Reload Container
