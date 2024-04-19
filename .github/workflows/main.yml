@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Listar directorio
-      run: ls -R .
+    #- name: Listar directorio
+    # run: ls -R .
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.7
       with:
@@ -33,4 +33,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: docker compose -f /docker/opentest/docker-compose.yml up -d
+        script: docker compose build opentest && docker compose -f /docker/opentest/docker-compose.yml up -d
