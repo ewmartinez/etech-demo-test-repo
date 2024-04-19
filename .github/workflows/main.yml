@@ -24,6 +24,7 @@ jobs:
         rm: true
   reload:
     name: Reload Container
+    needs: copy
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
@@ -33,4 +34,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        script: docker compose build opentest && docker compose -f /docker/opentest/docker-compose.yml up -d
+        script: cd /opt/opentest && docker compose build opentest && docker compose -f /docker/opentest/docker-compose.yml up -d
