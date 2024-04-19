@@ -2,7 +2,7 @@ name: CI Opentest
 on: [push]
 jobs:
 
-  build:
+  copy:
     name: Copy-SSH
     runs-on: ubuntu-latest
     steps:
@@ -17,3 +17,15 @@ jobs:
         source: "test-repo"
         target: /docker/opentest
         rm: true
+  reload:
+    name: Reload Container
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: docker compose -f /docker/opentest/docker-compose.yml up -d
