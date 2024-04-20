@@ -4,5 +4,7 @@ description: |
 actors:
   - actor: MOBILE
     segments:
-      - description: Take a screenshot
-        action: org.getopentest.appium.TakeScreenshot
+      - segment: 1
+        actions:
+          - description: Take a screenshot
+            action: org.getopentest.appium.TakeScreenshot
