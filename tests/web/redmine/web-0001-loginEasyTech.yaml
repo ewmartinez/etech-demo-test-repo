@@ -34,7 +34,7 @@ dataSet: |
   ]
 
 actors:
-  - actor: ACTOR
+  - actor: WEB
     segments:
       - segment: 1
         actions:
