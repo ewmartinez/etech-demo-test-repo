@@ -1,0 +1,8 @@
+description: |
+  Abre una aplicacion Android
+
+actors:
+  - actor: MOBILE
+    segments:
+      - description: Take a screenshot
+        action: org.getopentest.appium.TakeScreenshot
